@@ -1,5 +1,5 @@
 /*
-Copyright 2015 Jun Wako <wakojun@gmail.com>
+Copyright 2017 Balz Guenat
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,38 +17,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define BACKLIGHT_PWM_DRIVER    PWMD3
-#define BACKLIGHT_PWM_CHANNEL   1
-#define BACKLIGHT_PAL_MODE      1
 
-/* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
-/* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+/* key matrix size */
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 16
 
-#define RGBLIGHT_EFFECT_BREATHING
-#define RGBLIGHT_EFFECT_RAINBOW_MOOD
-#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#define RGBLIGHT_EFFECT_SNAKE
-#define RGBLIGHT_EFFECT_KNIGHT
-#define RGBLIGHT_EFFECT_CHRISTMAS
-#define RGBLIGHT_EFFECT_STATIC_GRADIENT
-#define RGBLIGHT_EFFECT_RGB_TEST
-#define RGBLIGHT_EFFECT_ALTERNATING
-#define RGBLIGHT_EFFECT_TWINKLE
-#define RGBLED_NUM 20
-#define WS2812_SPI SPID2
-#define WS2812_SPI_MOSI_PAL_MODE 0
-#define WS2812_SPI_SCK_PAL_MODE 0
-#define WS2812_SPI_SCK_PIN B13
+//#define DIODE_DIRECTION
 
-/* Caps Word config */
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#define TAPPING_TERM      175
 
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
  */
+
+#define USE_I2C
 
 /* disable debug print */
 //#define NO_DEBUG
@@ -60,3 +43,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
+
+// higher value means deeper actuation point, less sensitive
+// be careful and only make small adjustments (steps of 1 or 2).
+// too high and keys will fail to actuate. too low and keys will actuate spontaneously.
+// test all keys before further adjustment.
+// this should probably stay in the range +/-5.
+// #define ACTUATION_DEPTH_ADJUSTMENT 0
